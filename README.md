@@ -1,4 +1,4 @@
-# Generative AI Multi-Agent Customer Support Chatbot
+# Multi-Agent Customer Support Assistant
 
 ## Overview
 
