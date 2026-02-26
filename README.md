@@ -76,29 +76,6 @@ flowchart LR
     class CORE,DATA cluster;
 ```
 
-## Project Structure
-
-```text
-src/
-  chatbot/
-    agents/
-      graph.py
-      specialists.py
-    data/
-      db.py
-      seed.py
-    retrieval/
-      vector_store.py
-    services/
-      assistant.py
-    config.py
-    models.py
-  mcp_server.py
-  streamlit_app.py
-requirements.txt
-.env.example
-```
-
 ## Quick Start (Windows PowerShell)
 
 ### 1. Create and activate virtual environment
@@ -201,12 +178,3 @@ Mixed:
 - `AttributeError: ask_with_meta` in Streamlit:
   - Restart Streamlit so old session objects are refreshed.
 
-## Submission Checklist (for assessment)
-
-- README included with setup, architecture, and usage
-- LangChain + LangGraph multi-agent workflow implemented
-- SQL + Vector DB integration completed
-- MCP server implemented
-- Streamlit UI implemented
-- Policy ingestion + Q&A demonstrated
-- Structured data Q&A demonstrated
