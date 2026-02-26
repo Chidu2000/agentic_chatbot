@@ -121,34 +121,46 @@ Configuration notes:
 
 ## Usage Instructions
 
-### A. Run Streamlit application
+### Primary path (UI demo)
+
+Start the Streamlit app:
 
 ```powershell
 streamlit run src/streamlit_app.py
 ```
 
-Once the app is running:
+In the running UI:
 1. Place policy PDFs in `./policy_docs` (create folder if needed).
 2. In the sidebar, click `Ingest PDFs`.
 3. Start asking questions in chat.
 
-### B. Run MCP server
+What to expect:
+- SQL data is auto-seeded on first run if `AUTO_SEED_SQL_IF_EMPTY=true`.
+- Each answer shows the selected route (`SQL`, `POLICY`, `BOTH`, `NONE`).
+- Policy answers include citations from ingested PDFs.
+
+### Optional path (MCP server validation)
+
+MCP is implemented for requirement compliance and external tool integration.
+It is not required to run the Streamlit UI.
+
+Start MCP server:
 
 ```powershell
 python src/mcp_server.py
 ```
 
-Available MCP tools:
+Exposed MCP tools:
 - `initialize_sql_data()`
 - `ingest_policy_pdfs(directory: str)`
 - `ask_support_assistant(question: str)`
 - `ask_support_assistant_with_route(question: str)`
 
-### C. Expected behavior
+### Quick verification checklist
 
-- The router chooses `SQL`, `POLICY`, `BOTH`, or `NONE` per query.
-- SQL execution is read-only (`SELECT` only).
-- Policy responses include source citations from ingested PDFs.
+1. Ask a policy question: `What is the refund eligibility window?`
+2. Ask a SQL question: `Show Emma Brown's profile and past support tickets.`
+3. Ask a mixed question: `What policy applies to Emma's refund case?`
 
 ## Sample Questions
 
@@ -163,4 +175,3 @@ Available MCP tools:
 - `429 insufficient_quota`: your OpenAI project has no available quota/billing.
 - `No PDF files found`: ensure files exist in `./policy_docs` and use `.pdf` extension.
 - UI uses old session state after code changes: restart Streamlit.
-
