@@ -139,28 +139,8 @@ What to expect:
 - Each answer shows the selected route (`SQL`, `POLICY`, `BOTH`, `NONE`).
 - Policy answers include citations from ingested PDFs.
 
-### Optional path (MCP server validation)
-
-MCP is implemented for requirement compliance and external tool integration.
-It is not required to run the Streamlit UI.
-
-Start MCP server:
-
-```powershell
-python src/mcp_server.py
-```
-
-Exposed MCP tools:
-- `initialize_sql_data()`
-- `ingest_policy_pdfs(directory: str)`
-- `ask_support_assistant(question: str)`
-- `ask_support_assistant_with_route(question: str)`
-
-### Quick verification checklist
-
-1. Ask a policy question: `What is the refund eligibility window?`
-2. Ask a SQL question: `Show Emma Brown's profile and past support tickets.`
-3. Ask a mixed question: `What policy applies to Emma's refund case?`
+MCP note:
+- `src/mcp_server.py` exposes the same LangGraph multi-agent backend (`ChatbotService`) as MCP tools, so external MCP clients can invoke SQL retrieval, policy retrieval, and routed responses through a standardized server interface.
 
 ## Sample Questions
 
