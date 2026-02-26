@@ -1,7 +1,5 @@
 # Multi-Agent Customer Support Assistant
 
-About: A production-style support assistant that helps teams answer customer questions by combining SQL-based customer and ticket data with policy knowledge from uploaded PDF documents.
-
 ## Overview
 
 This project is a multi-agent customer support assistant that answers natural language questions using:
@@ -76,21 +74,28 @@ flowchart LR
 - Python `3.10+`
 - OpenAI API key with active quota/billing
 
-### 1. Create and activate a virtual environment
+### 1. Clone the repository
+
+```powershell
+git clone <your-repo-url>
+cd <your-repo-folder>
+```
+
+### 2. Create and activate a virtual environment
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 2. Install dependencies
+### 3. Install dependencies
 
 ```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 3. Configure environment variables
+### 4. Configure environment variables
 
 ```powershell
 copy .env.example .env
