@@ -1,5 +1,7 @@
 # Multi-Agent Customer Support Assistant
 
+About: A production-style support assistant that helps teams answer customer questions by combining SQL-based customer and ticket data with policy knowledge from uploaded PDF documents.
+
 ## Overview
 
 This project is a multi-agent customer support assistant that answers natural language questions using:
