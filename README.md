@@ -14,6 +14,10 @@ This project is a multi-agent customer support assistant that answers natural la
 - Interface: Streamlit
 - Integration layer: MCP Server
 
+## Video Walkthrough
+
+- https://vimeo.com/1168610124/7202616c54?share=copy&fl=sv&fe=ci
+
 ## Architecture
 
 ```mermaid
@@ -151,9 +155,7 @@ What to expect:
 MCP note:
 - `src/mcp_server.py` exposes the same LangGraph multi-agent backend (`ChatbotService`) as MCP tools, so external MCP clients can invoke SQL retrieval, policy retrieval, and routed responses through a standardized server interface.
 
-## Video Walkthrough
 
-- https://vimeo.com/1168610124/7202616c54?share=copy&fl=sv&fe=ci
 
 ## Sample Questions
 
