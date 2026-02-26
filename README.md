@@ -69,6 +69,8 @@ flowchart LR
 
 ## Project Setup
 
+> The setup commands below are shown for both Windows (PowerShell) and macOS/Linux (bash/zsh).
+
 ### Prerequisites
 
 - Python `3.10+`
@@ -76,29 +78,64 @@ flowchart LR
 
 ### 1. Clone the repository
 
+Windows (PowerShell):
+
 ```powershell
+git clone https://www.github.com/Chidu2000/agentic_chatbot.git
+cd agentic_chatbot
+```
+
+macOS/Linux (bash/zsh):
+
+```bash
 git clone https://www.github.com/Chidu2000/agentic_chatbot.git
 cd agentic_chatbot
 ```
 
 ### 2. Create and activate a virtual environment
 
+Windows (PowerShell):
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
+macOS/Linux (bash/zsh):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
 ### 3. Install dependencies
+
+Windows (PowerShell):
 
 ```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+macOS/Linux (bash/zsh):
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
 ### 4. Configure environment variables
+
+Windows (PowerShell):
 
 ```powershell
 copy .env.example .env
+```
+
+macOS/Linux (bash/zsh):
+
+```bash
+cp .env.example .env
 ```
 
 Set the required values in `.env`:
@@ -123,7 +160,15 @@ Configuration notes:
 
 Start the Streamlit app:
 
+Windows (PowerShell):
+
 ```powershell
+streamlit run src/streamlit_app.py
+```
+
+macOS/Linux (bash/zsh):
+
+```bash
 streamlit run src/streamlit_app.py
 ```
 
