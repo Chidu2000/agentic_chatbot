@@ -1,27 +1,18 @@
 # Generative AI Multi-Agent Customer Support Chatbot
 
-A beginner-friendly project that answers support questions from:
-- Structured data in SQL (customer profiles + ticket history)
-- Unstructured policy PDFs (refund/terms/support docs)
+## Overview
 
-Built using the required stack:
-- LangChain + LangGraph
-- OpenAI LLM + OpenAI embeddings
-- SQLite + Chroma Vector DB
-- MCP Server
-- Streamlit UI
+This project is a multi-agent customer support assistant that answers natural language questions using:
+- Structured customer and ticket data from SQL
+- Unstructured policy content from uploaded PDFs
 
-## What This App Does
+## Tech Stack
 
-You can ask questions like:
-- "What is the current refund policy?"
-- "Give me a quick overview of customer Emma Brown and her past support tickets."
-- "Based on Emma's ticket, what policy applies?"
-
-The app routes your question to the right agent:
-- SQL Agent for database questions
-- Policy Agent for PDF/policy questions
-- Both Agents for mixed questions
+- Orchestration: LangChain, LangGraph
+- Models: OpenAI (LLM + embeddings)
+- Databases: SQLite (structured), Chroma (vector)
+- Interface: Streamlit
+- Integration layer: MCP Server
 
 ## Architecture
 
