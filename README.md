@@ -69,7 +69,7 @@ flowchart LR
 
 ## Project Setup
 
-> The setup commands below are shown for both Windows (PowerShell) and macOS/Linux (bash/zsh).
+> Steps are cross-platform unless explicitly noted.
 
 ### Prerequisites
 
@@ -77,15 +77,6 @@ flowchart LR
 - OpenAI API key with active quota/billing
 
 ### 1. Clone the repository
-
-Windows (PowerShell):
-
-```powershell
-git clone https://www.github.com/Chidu2000/agentic_chatbot.git
-cd agentic_chatbot
-```
-
-macOS/Linux (bash/zsh):
 
 ```bash
 git clone https://www.github.com/Chidu2000/agentic_chatbot.git
@@ -110,29 +101,12 @@ source .venv/bin/activate
 
 ### 3. Install dependencies
 
-Windows (PowerShell):
-
-```powershell
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-macOS/Linux (bash/zsh):
-
 ```bash
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
 ### 4. Configure environment variables
-
-Windows (PowerShell):
-
-```powershell
-copy .env.example .env
-```
-
-macOS/Linux (bash/zsh):
 
 ```bash
 cp .env.example .env
@@ -159,14 +133,6 @@ Configuration notes:
 <!-- ### Primary path (UI demo) -->
 
 Start the Streamlit app:
-
-Windows (PowerShell):
-
-```powershell
-streamlit run src/streamlit_app.py
-```
-
-macOS/Linux (bash/zsh):
 
 ```bash
 streamlit run src/streamlit_app.py
