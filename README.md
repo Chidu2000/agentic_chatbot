@@ -23,7 +23,7 @@ The app routes your question to the right agent:
 - Policy Agent for PDF/policy questions
 - Both Agents for mixed questions
 
-## Colorful Architecture Diagram
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -76,7 +76,7 @@ flowchart LR
     class CORE,DATA cluster;
 ```
 
-## Quick Start (Windows PowerShell)
+## Project Setup 
 
 ### 1. Create and activate virtual environment
 
@@ -109,7 +109,7 @@ AUTO_SEED_SQL_IF_EMPTY=true
 SHOW_SETUP_UI=false
 ```
 
-## Run the App
+## Usage Instructions
 
 ### Streamlit (recommended for demo)
 
@@ -138,29 +138,14 @@ MCP tools exposed:
 - `ask_support_assistant(question: str)`
 - `ask_support_assistant_with_route(question: str)`
 
-## How Routing Works
 
-The router picks one label for each question:
-- `SQL`: customer/ticket data only
-- `POLICY`: policy PDF info only
-- `BOTH`: requires SQL + policy context
-- `NONE`: unclear/unsupported
-
-The selected route is shown in the Streamlit chat for transparency.
-
-## Safety and Quality Features
-
-- SQL guardrails: only safe read-only `SELECT` queries are executed
-- Policy citations: answers include `[C1]` style references + source/page list
-- Multi-agent synthesis: combines SQL + policy outputs for blended questions
-
-## Example Questions to Try
+## Sample Questions to Try
 
 Policy:
 - "What is the refund eligibility window?"
 - "Does cancellation automatically trigger a refund?"
 
-SQL:
+Data Fetching:
 - "Show Emma Brown's profile and past support tickets."
 - "Which tickets are high priority and still open?"
 
@@ -175,6 +160,4 @@ Mixed:
 - `No PDF files found`:
   - Ensure your documents are in `./policy_docs` and have `.pdf` extension.
 
-- `AttributeError: ask_with_meta` in Streamlit:
-  - Restart Streamlit so old session objects are refreshed.
 
