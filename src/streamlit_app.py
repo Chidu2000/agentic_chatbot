@@ -25,11 +25,11 @@ if "sql_bootstrap_done" not in st.session_state:
     if auto_seed_sql_if_empty:
         st.session_state.sql_bootstrap_message = service.ensure_sql_data()
     else:
-        st.session_state.sql_bootstrap_message = "Auto SQL seed disabled."
+        st.session_state.sql_bootstrap_message = "Auto-seed disabled. Using existing local SQL data if available."
     st.session_state.sql_bootstrap_done = True
 
 with st.sidebar:
-    st.caption(f"SQL Status: {st.session_state.sql_bootstrap_message}")
+    st.caption(f"SQL Demo Data: {st.session_state.sql_bootstrap_message}")
     st.subheader("Ingest Policy PDFs")
     policy_dir = st.text_input("Policy folder path", value="./policy_docs")
     if st.button("Ingest PDFs", use_container_width=True):

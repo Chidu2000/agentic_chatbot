@@ -20,7 +20,7 @@ class ChatbotService:
 
     def initialize_sql_data(self) -> str:
         seed_data()
-        return "Synthetic SQL data initialized."
+        return "Synthetic demo SQL data initialized in the local database."
 
     def has_sql_data(self) -> bool:
         engine = get_engine()
@@ -30,7 +30,7 @@ class ChatbotService:
 
     def ensure_sql_data(self) -> str:
         if self.has_sql_data():
-            return "SQL data already present."
+            return "Existing local SQL demo data detected (auto-seed skipped)."
         return self.initialize_sql_data()
 
     def ingest_policy_directory(self, directory: str) -> str:
