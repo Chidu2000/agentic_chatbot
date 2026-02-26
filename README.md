@@ -77,7 +77,7 @@ flowchart LR
 ### 1. Clone the repository
 
 ```powershell
-git clone https://github.com/Chidu2000/agentic_chatbot.git
+git clone https://www.github.com/Chidu2000/agentic_chatbot.git
 cd agentic_chatbot
 ```
 
