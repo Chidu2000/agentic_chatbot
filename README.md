@@ -121,7 +121,7 @@ Configuration notes:
 
 ## Usage Instructions
 
-### Primary path (UI demo)
+<!-- ### Primary path (UI demo) -->
 
 Start the Streamlit app:
 
