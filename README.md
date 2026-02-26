@@ -77,8 +77,8 @@ flowchart LR
 ### 1. Clone the repository
 
 ```powershell
-git clone <your-repo-url>
-cd <your-repo-folder>
+git clone https://github.com/Chidu2000/agentic_chatbot.git
+cd agentic_chatbot
 ```
 
 ### 2. Create and activate a virtual environment
