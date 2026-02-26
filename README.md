@@ -76,9 +76,14 @@ flowchart LR
     class CORE,DATA cluster;
 ```
 
-## Project Setup 
+## Project Setup
 
-### 1. Create and activate virtual environment
+### Prerequisites
+
+- Python `3.10+`
+- OpenAI API key with active quota/billing
+
+### 1. Create and activate a virtual environment
 
 ```powershell
 python -m venv .venv
@@ -88,19 +93,20 @@ python -m venv .venv
 ### 2. Install dependencies
 
 ```powershell
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 3. Configure environment
+### 3. Configure environment variables
 
 ```powershell
 copy .env.example .env
 ```
 
-Open `.env` and set:
+Set the required values in `.env`:
 
 ```env
-OPENAI_API_KEY=your_key_here
+OPENAI_API_KEY=your_openai_api_key
 OPENAI_MODEL=gpt-4o-mini
 OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 SQLITE_PATH=./data/support.db
@@ -109,55 +115,52 @@ AUTO_SEED_SQL_IF_EMPTY=true
 SHOW_SETUP_UI=false
 ```
 
+Configuration notes:
+- `AUTO_SEED_SQL_IF_EMPTY=true`: auto-initializes synthetic SQL data if DB is empty.
+- `SHOW_SETUP_UI=false`: hides admin-only setup controls from the public UI.
+
 ## Usage Instructions
 
-### Streamlit (recommended for demo)
+### A. Run Streamlit application
 
 ```powershell
 streamlit run src/streamlit_app.py
 ```
 
-In the UI sidebar:
-1. Put policy PDFs in `./policy_docs`
-2. Click `Ingest PDFs`
-3. Start chatting
+Once the app is running:
+1. Place policy PDFs in `./policy_docs` (create folder if needed).
+2. In the sidebar, click `Ingest PDFs`.
+3. Start asking questions in chat.
 
-Notes:
-- SQL demo data is auto-seeded if DB is empty (`AUTO_SEED_SQL_IF_EMPTY=true`)
-- Admin setup controls are hidden by default (`SHOW_SETUP_UI=false`)
-
-### MCP Server
+### B. Run MCP server
 
 ```powershell
 python src/mcp_server.py
 ```
 
-MCP tools exposed:
+Available MCP tools:
 - `initialize_sql_data()`
 - `ingest_policy_pdfs(directory: str)`
 - `ask_support_assistant(question: str)`
 - `ask_support_assistant_with_route(question: str)`
 
+### C. Expected behavior
 
-## Sample Questions to Try
+- The router chooses `SQL`, `POLICY`, `BOTH`, or `NONE` per query.
+- SQL execution is read-only (`SELECT` only).
+- Policy responses include source citations from ingested PDFs.
 
-Policy:
-- "What is the refund eligibility window?"
-- "Does cancellation automatically trigger a refund?"
+## Sample Questions
 
-Data Fetching:
-- "Show Emma Brown's profile and past support tickets."
-- "Which tickets are high priority and still open?"
-
-Mixed:
-- "Emma had a duplicate charge refund. What policy applies to her case?"
+- `What is the refund eligibility window?`
+- `Does cancellation automatically trigger a refund?`
+- `Show Emma Brown's profile and past support tickets.`
+- `Which tickets are high priority and still open?`
+- `Emma had a duplicate charge refund. What policy applies to her case?`
 
 ## Troubleshooting
 
-- `429 insufficient_quota`:
-  - Your OpenAI project has no available quota/billing. Use a funded API key.
-
-- `No PDF files found`:
-  - Ensure your documents are in `./policy_docs` and have `.pdf` extension.
-
+- `429 insufficient_quota`: your OpenAI project has no available quota/billing.
+- `No PDF files found`: ensure files exist in `./policy_docs` and use `.pdf` extension.
+- UI uses old session state after code changes: restart Streamlit.
 
